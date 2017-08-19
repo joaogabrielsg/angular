@@ -4,6 +4,15 @@
     <h3> Interpolation/ Interpolação </h3>
     <p>String rederizada com interpolação: {{ url }}</p>
     <p>1 + 1 = {{ 1 + 1 }}</p>
+    <p>1 + 1 != {{ 1 + 1 + getValor() }}</p>
+    <p> {{ cursoAngular && getCurtirCurso() }}</p>
+  </article>
+
+  <article>
+    <h3>Binding Image</h3>
+    <img src="{{ urlImage }}">
+    <img [src]="urlImage">
+    <img bind-src="urlImage">
   </article>
   
 </section>
