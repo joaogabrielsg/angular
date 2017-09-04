@@ -13,7 +13,7 @@
     <img src="{{ urlImage }}">
     <img [src]="urlImage">
     <img bind-src="urlImage">
-  </article-->
+  </article>
   
   <article>
 
@@ -29,6 +29,10 @@
     </div>
 
     <br><br>
+
+    <div class="alert {{ class.value }}" role="alert">
+      Esse texto vai ser da cor 
+    </div>
 
     <div class="alert" role="alert"
       [class.alert-success]="class.value == 'alert-success'">
@@ -47,7 +51,30 @@
       Erro
     </div>
 
+    <div class="alert alert-danger" role="alert"
+      [style.display]="class.value == 'alert-danger' ? 'block' : 'none'">
+      Esse texto so vai aparecer em caso de erro.
+    </div>
+
+  </article-->
+
+  <article>
+    <h3>Event Binding</h3>
+    <div>
+      <button (click)="buttonClicked()" 
+      class="btn btn-primary">
+        Me Click
+      </button>
+
+      <br><br>
+
+      <input type="text"
+        (keyup)="onKeyUp($event)">
+      <p>Novo Valor: {{ newValue }}</p>
+
+    </div>
   </article>
+
 
 
 </section>
