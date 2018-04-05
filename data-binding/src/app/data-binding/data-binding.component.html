@@ -1,6 +1,6 @@
 <section class="property-biding">
 
-  <!--article>
+  <!--<article>
     <h3> Interpolation/ Interpolação </h3>
     <p>String rederizada com interpolação: {{ url }}</p>
     <p>1 + 1 = {{ 1 + 1 }}</p>
@@ -13,9 +13,9 @@
     <img src="{{ urlImage }}">
     <img [src]="urlImage">
     <img bind-src="urlImage">
-  </article>
+  </article>-->
   
-  <article>
+  <!--<article>
 
     <h3> Class and Style Binding</h3>
     <div>
@@ -56,9 +56,9 @@
       Esse texto so vai aparecer em caso de erro.
     </div>
 
-  </article-->
+  </article>-->
 
-  <article>
+  <!--<article>
     <h3>Event Binding</h3>
     <div>
       <button (click)="buttonClicked()" 
@@ -69,11 +69,54 @@
       <br><br>
 
       <input type="text"
-        (keyup)="onKeyUp($event)">
+        (keyup)="onKeyUp($event)"
+        (keyup.enter) = "saveValue($event.target.value)">
+
       <p>Novo Valor: {{ newValue }}</p>
+      <p>Valor Salvo: {{ valueSaved }}</p>
+
+      <span
+      (mouseover)="onMouseOverOut()"
+      (mouseout)="onMouseOverOut()"
+      [class.highlight]="isMouseOver">
+        Passe o mouse sobre mim
+      </span>
 
     </div>
+  </article>-->
+
+  <article>
+    <h3>Two-way data binding</h3>
+    <div>
+
+      <input type="text"
+      [value]="name"
+      (input)="name = $event.target.value">
+
+      <input [(ngModel)]="name">
+
+
+      <label>{{ name }}</label>
+    </div>
+
+    <div>
+      <input type="text" [(ngModel)]="pessoa.name">
+      <input type="text" [(ngModel)]="pessoa.age">
+
+      <p>{{ pessoa.name }}</p>      
+      <p>{{ pessoa.age }}</p>
+
+    </div>
+
+    <h2>{{ inputName }}</h2>
+
   </article>
+
+
+
+
+<app-output-property [value]="value" (changeValue)="onChangeValue($event)"></app-output-property>
+<button (click)="changeValue()"></button>
 
 
 
